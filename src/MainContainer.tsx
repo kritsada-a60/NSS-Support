@@ -5,7 +5,7 @@ import { RouterProvider } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 // Import router
-import { Router } from "./Route/route";
+import { Router } from "./routes/route";
 
 import "dayjs/locale/th";
 
