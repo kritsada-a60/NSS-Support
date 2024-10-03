@@ -2,9 +2,10 @@ import { ThemeProvider } from "@mui/material/styles";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { RouterProvider } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 // Import router
-import { Router } from "./Route/route";
+import { Router } from "./routes/route";
 
 import "dayjs/locale/th";
 
@@ -23,8 +24,10 @@ const MainContainer = () => {
       <CssBaseline />
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
         <div className="application">
-          <meta charSet="utf-8" />
-          <title>NSS Support</title>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>NSS Support</title>
+          </Helmet>
           <RouterProvider router={Router} />
         </div>
       </LocalizationProvider>

@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.2",
     "@mui/material": "^6.1.2",
     "@mui/x-date-pickers": "^7.18.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -47,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-helmet": "^6.1.11"
   }
 }
