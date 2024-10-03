@@ -12,8 +12,8 @@ import 'dayjs/locale/th';
 import { Box, CssBaseline } from '@mui/material';
 
 // Import utility and theme
-import { getSystemLang } from './utils/getSystemLang'; // แก้ไขเส้นทางตามตำแหน่งจริง
-import { theme } from './styles/theme'; // แก้ไขเส้นทางตามตำแหน่งจริง
+import { getSystemLang } from './utils/getSystemLang';
+import { theme } from './styles/theme';
 
 const MainContainer = () => {
     const locale = getSystemLang().toLowerCase();

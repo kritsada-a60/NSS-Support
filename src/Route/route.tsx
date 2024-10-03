@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Login from '../pages/Login/login'; // สมมติว่ามีไฟล์ Home.tsx ในโฟลเดอร์ pages
+import Login from '../pages/Login/login';
 
 export const Router = createBrowserRouter([
    {
