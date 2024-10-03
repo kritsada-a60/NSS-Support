@@ -1,8 +1,6 @@
-import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
@@ -16,6 +14,8 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import { useState } from "react";
+import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 
 const drawerWidth = 240;
 
@@ -55,7 +55,6 @@ const AppBar = styled(MuiAppBar, {
     duration: theme.transitions.duration.leavingScreen,
   }),
   boxShadow: "none",
-  height: "56px",
   variants: [
     {
       props: ({ open }) => open,
@@ -80,9 +79,9 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-export default function PersistentDrawerLeft() {
+export default function SideBar() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -92,17 +91,21 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
+  const [activeItem, setActiveItem] = useState<number | null>(null);
+
+  const handleItemClick = (index: number) => {
+    setActiveItem(index);
+  };
   return (
     <Box sx={{ display: "flex" }}>
-      <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Box
           sx={{
-            background: "#00A651",
             minHeight: "56px",
             display: "flex",
             alignItems: "center",
             padding: "0px 24px 0 24px",
+            background: "white",
           }}
         >
           <IconButton
@@ -119,9 +122,61 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            NSS Support
-          </Typography>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <Typography variant="h6" noWrap component="div" color="#00A651">
+              NSS Support
+            </Typography>
+
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                height: "40px",
+                padding: "8px",
+              }}
+            >
+              {/* Picture profile */}
+              <Box
+                sx={{
+                  width: "40px",
+                  height: "40px",
+                  background: "#00A651",
+                  borderRadius: "999px",
+                }}
+              />
+              <Box sx={{ padding: "0 12px 0 12px" }}>
+                <p style={{ color: "#333333", margin: 0, fontSize: "16px" }}>
+                  User xxxxx
+                </p>
+                <p style={{ color: "#666666", margin: 0, fontSize: "12px" }}>
+                  I AM Administrator
+                </p>
+              </Box>
+
+              {/* button logout */}
+              <Box
+                sx={{
+                  width: "40px",
+                  height: "40px",
+                  background: "#DFF0E7",
+                  borderRadius: "8px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <LogoutRoundedIcon
+                  style={{ width: "20px", height: "20px", color: "#00A651" }}
+                />
+              </Box>
+            </Box>
+          </div>
         </Box>
       </AppBar>
       <Drawer
@@ -131,6 +186,7 @@ export default function PersistentDrawerLeft() {
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
+            background: "#DFF0E7",
           },
         }}
         variant="persistent"
@@ -159,11 +215,17 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </DrawerHeader>
 
-        <List>
+        <List sx={{ color: "#00A651" }}>
           {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
+              <ListItemButton
+                onClick={() => handleItemClick(index)}
+                sx={{
+                  backgroundColor:
+                    activeItem === index ? "white" : "transparent",
+                }}
+              >
+                <ListItemIcon sx={{ color: "#00A651" }}>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
@@ -172,6 +234,8 @@ export default function PersistentDrawerLeft() {
           ))}
         </List>
       </Drawer>
+
+      {/* content */}
       <Main open={open} sx={{ background: "#F5F5F5", height: "100vh" }}>
         <DrawerHeader />
         <Typography sx={{ marginBottom: 2 }}>
