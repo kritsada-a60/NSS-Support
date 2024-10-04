@@ -5,17 +5,7 @@ export default function ApproveBtn({ children, ...other }: ButtonProps) {
   //   const { t } = useTranslation();
 
   return (
-    <Button
-      variant="contained"
-      sx={{
-        width: "100px",
-        backgroundColor: "#00A651",
-        "&:hover": {
-          backgroundColor: "#008F43",
-        },
-      }}
-      {...other}
-    >
+    <Button variant="contained" className="primaryContainedButton" {...other}>
       Approve
     </Button>
   );

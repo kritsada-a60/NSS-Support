@@ -5,18 +5,7 @@ export default function UploadBtn({ children, ...other }: ButtonProps) {
   //   const { t } = useTranslation();
 
   return (
-    <Button
-      variant="outlined"
-      {...other}
-      sx={{
-        width: "150px",
-        color: "#00A651",
-        borderColor: "#00A651",
-        "&:hover": {
-          borderColor: "#008F43",
-        },
-      }}
-    >
+    <Button variant="outlined" {...other} className="primaryOutlinedButton">
       Upload
     </Button>
   );

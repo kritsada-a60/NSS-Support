@@ -1,22 +1,12 @@
 import { Button, ButtonProps } from "@mui/material";
+// import "../../../styles/moduleCSS.css";
 // import { useTranslation } from "react-i18next";
 
 export default function AddProductBtn({ children, ...other }: ButtonProps) {
   //   const { t } = useTranslation();
 
   return (
-    <Button
-      variant="outlined"
-      sx={{
-        width: "150px",
-        color: "#00A651",
-        borderColor: "#00A651",
-        "&:hover": {
-          borderColor: "#008F43",
-        },
-      }}
-      {...other}
-    >
+    <Button variant="outlined" className="primaryOutlinedButton" {...other}>
       Add Product
     </Button>
   );
