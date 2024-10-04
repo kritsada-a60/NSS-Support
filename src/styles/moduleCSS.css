@@ -1,20 +1,39 @@
+.outlinedButton {
+  width: 189px;
+  height: 52px;
+  border-radius: 14px !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+}
+
+.containedButton {
+  width: 189px;
+  height: 52px;
+  border-radius: 14px !important;
+  font-size: 18px !important;
+  text-transform: none !important;
+  box-shadow: none !important;
+  font-weight: 700 !important;
+}
+
 .primaryOutlinedButton {
   width: 189px;
   height: 52px;
   border-radius: 14px !important;
-  color: #00a651 !important;
-  border: 1px solid #00a651 !important;
+  /* color: #00a651 !important; */
+  /* border: 1px solid #00a651 !important; */
   font-size: 18px !important;
   font-weight: 700 !important;
   text-transform: none !important;
-  &:hover {
+  /* &:hover {
     border-color: #008f43;
-  }
+  } */
 }
 
 .primaryContainedButton {
-  background: #00a651 !important;
-  color: #fff !important;
+  /* background: #00a651 !important;
+  color: #fff !important; */
   width: 189px;
   padding: 8px 12px;
   height: 52px;
@@ -23,4 +42,18 @@
   text-transform: none !important;
   box-shadow: none !important;
   font-weight: 700 !important;
+}
+
+.custom-data-grid {
+  border-radius: 12px;
+  overflow: hidden; /* Ensure the content respects the border radius */
+}
+
+.custom-data-grid .MuiDataGrid-row--borderBottom {
+  background-color: #00a651 !important;
+  color: #ffffff;
+}
+
+.custom-data-grid .MuiDataGrid-sortIcon {
+  color: #ffffff;
 }

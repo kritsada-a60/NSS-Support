@@ -9,7 +9,7 @@ export default function SendToBackBtn({ children, ...other }: ButtonProps) {
       variant="outlined"
       color="inherit"
       {...other}
-      sx={{ width: "150px" }}
+      className="outlinedButton"
     >
       Send To Back
     </Button>

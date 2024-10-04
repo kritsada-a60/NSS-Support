@@ -4,12 +4,13 @@ export const theme = createTheme({
   palette: {
     primary: {
       main: "#00A651", // Primary - Green
-      dark: "#31363D",
+      dark: "#008f43",
       light: "#DFF0E7",
       contrastText: "#FFFFFF", // Primary - White (Text on Primary)
     },
     secondary: {
       main: "#BFE9D366", // Secondary - Green
+      dark: "#31363D",
     },
     background: {
       default: "#F8F8F8", // Background - BG Gray
@@ -32,7 +33,6 @@ export const theme = createTheme({
     },
     error: {
       main: "#DA291C", // Error - On Info
-      contrastText: "#FF978F", // Error - Container
     },
   },
   typography: {

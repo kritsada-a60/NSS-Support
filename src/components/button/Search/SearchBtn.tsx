@@ -5,7 +5,7 @@ export default function SearchBtn({ children, ...other }: ButtonProps) {
   //   const { t } = useTranslation();
 
   return (
-    <Button variant="contained" {...other} sx={{ width: "100px" }}>
+    <Button variant="contained" {...other} className="containedButton">
       Search
     </Button>
   );
