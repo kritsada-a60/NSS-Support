@@ -1,104 +1,74 @@
-import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
-import List from "@mui/material/List";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-import { useState } from "react";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
+import { useState } from "react";
+import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
+import DesktopWindowsRoundedIcon from "@mui/icons-material/DesktopWindowsRounded";
+import MailIcon from "@mui/icons-material/Mail";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const drawerWidth = 240;
+export default function Sidebar() {
+  const drawerWidth = 240;
 
-const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
-  open?: boolean;
-}>(({ theme }) => ({
-  flexGrow: 1,
-  padding: theme.spacing(3),
-  transition: theme.transitions.create("margin", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  marginLeft: `-${drawerWidth}px`,
-  variants: [
+  const menuItems = [
+    { id: 1, title: "Dashboard", icon: DashboardRoundedIcon, path: "" },
     {
-      props: ({ open }) => open,
-      style: {
-        transition: theme.transitions.create("margin", {
-          easing: theme.transitions.easing.easeOut,
-          duration: theme.transitions.duration.enteringScreen,
-        }),
-        marginLeft: 0,
-      },
+      id: 2,
+      title: "Management",
+      icon: DesktopWindowsRoundedIcon,
+      path: "",
+      children: [
+        {
+          segment: "sales",
+          title: "Sales",
+          // icon: BarChartIcon,
+          path: "",
+        },
+        {
+          segment: "traffic",
+          title: "Traffic",
+          // icon: DescriptionIcon,
+          path: "",
+        },
+      ],
     },
-  ],
-}));
-
-interface AppBarProps extends MuiAppBarProps {
-  open?: boolean;
-}
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})<AppBarProps>(({ theme }) => ({
-  transition: theme.transitions.create(["margin", "width"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  boxShadow: "none",
-  variants: [
-    {
-      props: ({ open }) => open,
-      style: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: `${drawerWidth}px`,
-        transition: theme.transitions.create(["margin", "width"], {
-          easing: theme.transitions.easing.easeOut,
-          duration: theme.transitions.duration.enteringScreen,
-        }),
-      },
-    },
-  ],
-}));
-
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-  justifyContent: "flex-end",
-}));
-
-export default function SideBar() {
-  const theme = useTheme();
-  const [open, setOpen] = useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+    { id: 3, title: "Sample", icon: MailIcon, path: "/sample" },
+  ];
 
   const [activeItem, setActiveItem] = useState<number | null>(null);
+  // const [activeSubItem, setActiveSubItem] = useState<string | null>(null);
 
-  const handleItemClick = (index: number) => {
-    setActiveItem(index);
+  const [openSubMenu, setOpenSubMenu] = useState<number | null>(null);
+
+  const handleItemClick = (id: number) => {
+    setActiveItem(id);
+    if (openSubMenu === id) {
+      setOpenSubMenu(null);
+    } else {
+      setOpenSubMenu(id);
+    }
   };
+
+  // const handleSubItemClick = (title: string) => {
+  //   setActiveSubItem(title);
+  // };
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar position="fixed" open={open}>
+      <AppBar
+        position="fixed"
+        sx={{
+          width: `calc(100% - ${drawerWidth}px)`,
+          ml: `${drawerWidth}px`,
+          boxShadow: "none",
+        }}
+      >
         <Box
           sx={{
             minHeight: "56px",
@@ -108,30 +78,15 @@ export default function SideBar() {
             background: "white",
           }}
         >
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={[
-              {
-                mr: 2,
-              },
-              open && { display: "none" },
-            ]}
-          >
-            <MenuIcon />
-          </IconButton>
           <div
             style={{
               display: "flex",
               justifyContent: "space-between",
+              alignItems: "center",
               width: "100%",
             }}
           >
-            <Typography variant="h6" noWrap component="div" color="#00A651">
-              NSS Support
-            </Typography>
+            <p style={{ color: "#00A651", fontSize: "14px" }}>NSS Support</p>
 
             <Box
               sx={{
@@ -172,7 +127,12 @@ export default function SideBar() {
                 }}
               >
                 <LogoutRoundedIcon
-                  style={{ width: "20px", height: "20px", color: "#00A651" }}
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    color: "#00A651",
+                    cursor: "pointer",
+                  }}
                 />
               </Box>
             </Box>
@@ -186,74 +146,84 @@ export default function SideBar() {
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
-            background: "#DFF0E7",
+            background: "#BFE9D366",
+            border: 0,
           },
         }}
-        variant="persistent"
+        variant="permanent"
         anchor="left"
-        open={open}
       >
-        <DrawerHeader>
-          {/* logo */}
-          <Box
-            sx={{
-              width: "100%",
-              padding: 2,
-              fontSize: "24px",
-            }}
-          >
-            Logo
-          </Box>
+        <Box
+          sx={{
+            height: "56px",
+            background: "#31363D",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: "40px",
+          }}
+        >
+          <Box color="white">Logo Name</Box>
+        </Box>
 
-          {/* optional close tab side bar */}
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-
-        <List sx={{ color: "#00A651" }}>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem key={text} disablePadding>
+        {menuItems.map((item) => (
+          <Box key={item.id} sx={{ padding: "0 16px", color: "#00A651" }}>
+            {/* Main Item */}
+            <Box
+              sx={{
+                backgroundColor:
+                  activeItem === item.id || openSubMenu === item.id
+                    ? "white"
+                    : "transparent",
+                borderRadius: "8px",
+              }}
+            >
               <ListItemButton
-                onClick={() => handleItemClick(index)}
+                onClick={() => handleItemClick(item.id)}
                 sx={{
                   backgroundColor:
-                    activeItem === index ? "white" : "transparent",
+                    activeItem === item.id ? "white" : "transparent",
+                  height: "40px",
+                  marginBottom: "8px",
+                  borderRadius: "8px",
+                  "&:hover": {
+                    backgroundColor: "white",
+                    transition: "background-color 0.2s ease-in-out",
+                  },
                 }}
               >
-                <ListItemIcon sx={{ color: "#00A651" }}>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                <ListItemIcon sx={{ color: "#00A651", minWidth: "24px" }}>
+                  {item.icon && <item.icon />}
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={item.title} sx={{ padding: "0 16px" }} />
+                {item.children &&
+                  (openSubMenu === item.id ? (
+                    <ExpandLessIcon />
+                  ) : (
+                    <ExpandMoreIcon />
+                  ))}
               </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+            </Box>
+          </Box>
+        ))}
       </Drawer>
-
-      {/* content */}
-      <Main open={open} sx={{ background: "#F5F5F5", height: "100vh" }}>
-        <DrawerHeader />
-        <Typography sx={{ marginBottom: 2 }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, bgcolor: "#F5F5F5", height: "100vh", p: 3 }}
+      >
+        <Toolbar />
+        <Typography
+          sx={{
+            marginBottom: 2,
+            color: "#333333",
+            fontSize: "32px",
+            fontWeight: "700",
+          }}
+        >
+          Infomation Management
         </Typography>
-      </Main>
+        <div>content</div>
+      </Box>
     </Box>
   );
 }
