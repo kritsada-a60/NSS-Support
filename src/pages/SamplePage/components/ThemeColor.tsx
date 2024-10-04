@@ -1,4 +1,5 @@
 import { Box, Paper, Stack, Typography } from "@mui/material";
+import { theme } from "../../../styles/theme";
 
 const ThemeColor = () => {
   const commonStyles = {
@@ -16,19 +17,39 @@ const ThemeColor = () => {
       </Typography>
       <Stack direction="row" spacing={1}>
         <Box
-          sx={{ ...commonStyles, borderRadius: "16px", bgcolor: "#31363D" }}
+          sx={{
+            ...commonStyles,
+            borderRadius: "16px",
+            bgcolor: theme.palette.primary.dark,
+          }}
         />
         <Box
-          sx={{ ...commonStyles, borderRadius: "16px", bgcolor: "#00A651" }}
+          sx={{
+            ...commonStyles,
+            borderRadius: "16px",
+            bgcolor: theme.palette.primary.main,
+          }}
         />
         <Box
-          sx={{ ...commonStyles, borderRadius: "16px", bgcolor: "#BFE9D366" }}
+          sx={{
+            ...commonStyles,
+            borderRadius: "16px",
+            bgcolor: theme.palette.secondary.main,
+          }}
         />
         <Box
-          sx={{ ...commonStyles, borderRadius: "16px", bgcolor: "##DFF0E7" }}
+          sx={{
+            ...commonStyles,
+            borderRadius: "16px",
+            bgcolor: theme.palette.primary.light,
+          }}
         />
         <Box
-          sx={{ ...commonStyles, borderRadius: "16px", bgcolor: "#F5F5F5" }}
+          sx={{
+            ...commonStyles,
+            borderRadius: "16px",
+            bgcolor: theme.palette.background.default,
+          }}
         />
       </Stack>
     </Paper>

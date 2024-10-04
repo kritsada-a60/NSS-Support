@@ -5,18 +5,7 @@ export default function AddStoreBtn({ children, ...other }: ButtonProps) {
   //   const { t } = useTranslation();
 
   return (
-    <Button
-      variant="outlined"
-      sx={{
-        width: "150px",
-        color: "#00A651",
-        borderColor: "#00A651",
-        "&:hover": {
-          borderColor: "#008F43",
-        },
-      }}
-      {...other}
-    >
+    <Button variant="outlined" className="primaryOutlinedButton" {...other}>
       Add Store
     </Button>
   );
