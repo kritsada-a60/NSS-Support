@@ -9,7 +9,7 @@ export default function ExportBtn({ children, ...other }: ButtonProps) {
       variant="outlined"
       color="warning"
       {...other}
-      sx={{ width: "100px" }}
+      className="outlinedButton"
     >
       Export
     </Button>

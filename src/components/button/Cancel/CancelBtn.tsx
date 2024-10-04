@@ -9,7 +9,7 @@ export default function CancelBtn({ children, ...other }: ButtonProps) {
       variant="outlined"
       color="inherit"
       {...other}
-      sx={{ width: "100px" }}
+      className="outlinedButton"
     >
       Cancel
     </Button>

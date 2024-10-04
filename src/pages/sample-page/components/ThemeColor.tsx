@@ -20,7 +20,7 @@ const ThemeColor = () => {
           sx={{
             ...commonStyles,
             borderRadius: "16px",
-            bgcolor: theme.palette.primary.dark,
+            bgcolor: theme.palette.secondary.dark,
           }}
         />
         <Box

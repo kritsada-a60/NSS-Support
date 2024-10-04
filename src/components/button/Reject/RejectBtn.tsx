@@ -9,7 +9,7 @@ export default function RejectBtn({ children, ...other }: ButtonProps) {
       variant="contained"
       color="error"
       {...other}
-      sx={{ width: "100px" }}
+      className="containedButton"
     >
       Reject
     </Button>

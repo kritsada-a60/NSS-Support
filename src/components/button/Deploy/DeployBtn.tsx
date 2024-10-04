@@ -9,7 +9,7 @@ export default function DeployBtn({ children, ...other }: ButtonProps) {
       variant="outlined"
       color="inherit"
       {...other}
-      sx={{ width: "100px" }}
+      className="outlinedButton"
     >
       Deploy
     </Button>
