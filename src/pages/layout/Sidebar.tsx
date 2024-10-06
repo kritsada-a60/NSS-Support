@@ -6,13 +6,14 @@ import Typography from "@mui/material/Typography";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
+
 import { useState } from "react";
 import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
 import DesktopWindowsRoundedIcon from "@mui/icons-material/DesktopWindowsRounded";
 import MailIcon from "@mui/icons-material/Mail";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Navbar from "./Navbar";
 
 export default function Sidebar() {
   const drawerWidth = 240;
@@ -69,75 +70,7 @@ export default function Sidebar() {
           boxShadow: "none",
         }}
       >
-        <Box
-          sx={{
-            minHeight: "56px",
-            display: "flex",
-            alignItems: "center",
-            padding: "0px 24px 0 24px",
-            background: "white",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              width: "100%",
-            }}
-          >
-            <p style={{ color: "#00A651", fontSize: "14px" }}>NSS Support</p>
-
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                height: "40px",
-                padding: "8px",
-              }}
-            >
-              {/* Picture profile */}
-              <Box
-                sx={{
-                  width: "40px",
-                  height: "40px",
-                  background: "#00A651",
-                  borderRadius: "999px",
-                }}
-              />
-              <Box sx={{ padding: "0 12px 0 12px" }}>
-                <p style={{ color: "#333333", margin: 0, fontSize: "16px" }}>
-                  User xxxxx
-                </p>
-                <p style={{ color: "#666666", margin: 0, fontSize: "12px" }}>
-                  I AM Administrator
-                </p>
-              </Box>
-
-              {/* button logout */}
-              <Box
-                sx={{
-                  width: "40px",
-                  height: "40px",
-                  background: "#DFF0E7",
-                  borderRadius: "8px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <LogoutRoundedIcon
-                  style={{
-                    width: "20px",
-                    height: "20px",
-                    color: "#00A651",
-                    cursor: "pointer",
-                  }}
-                />
-              </Box>
-            </Box>
-          </div>
-        </Box>
+        <Navbar />
       </AppBar>
       <Drawer
         sx={{

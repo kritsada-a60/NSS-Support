@@ -15,6 +15,7 @@ import { CssBaseline } from "@mui/material";
 // Import utility and theme
 import { getSystemLang } from "./utils/getSystemLang";
 import { theme } from "./styles/theme";
+import Navbar from "./pages/layout/Navbar";
 
 const MainContainer = () => {
   const locale = getSystemLang().toLowerCase();
@@ -28,6 +29,7 @@ const MainContainer = () => {
             <meta charSet="utf-8" />
             <title>NSS Support</title>
           </Helmet>
+          <Navbar />
           <RouterProvider router={Router} />
         </div>
       </LocalizationProvider>
