@@ -7,6 +7,7 @@ import RootLayout from "../pages/layout/RootLayout";
 import MainLayout from "../pages/layout/MainLayout";
 import CaMonitor from "../pages/ca-monitor/CaMonitor";
 import InitialHardware from "../pages/initial-hardware/InitialHardware";
+import SamplePage from "../pages/sample-page/SamplePage";
 
 export const Router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ export const Router = createBrowserRouter([
       {
         path: "/",
         element: <Login />,
+      },
+      {
+        path: "/sample",
+        element: <SamplePage />,
       },
       {
         path: "store-operation",
