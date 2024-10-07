@@ -64,11 +64,7 @@ const SampleDialog = () => {
           </Button>
           <Button
             onClick={() => {
-              AlertDialog(
-                "Alert Title",
-                "This is an alert message!",
-                "success"
-              );
+              AlertDialog("Alert Title", "This is an alert message!", "info");
             }}
             color="info"
           >

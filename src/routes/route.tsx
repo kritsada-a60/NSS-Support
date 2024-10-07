@@ -5,6 +5,7 @@ import Information from "../pages/information-mgm/Information";
 import WorkFlow from "../pages/work-flow/WorkFlow";
 import RootLayout from "../pages/layout/RootLayout";
 import MainLayout from "../pages/layout/MainLayout";
+import SamplePage from "../pages/sample-page/SamplePage";
 
 export const Router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ export const Router = createBrowserRouter([
       {
         path: "/",
         element: <Login />,
+      },
+      {
+        path: "/sample",
+        element: <SamplePage />,
       },
       {
         path: "store-operation",
