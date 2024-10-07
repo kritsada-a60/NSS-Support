@@ -16,6 +16,7 @@ const MainLayout = ({ children }: PropType) => {
           width: `calc(100% - ${drawerWidth}px)`,
           ml: `${drawerWidth}px`,
           boxShadow: "none",
+          background: "transparent",
         }}
       >
         <Navbar>
