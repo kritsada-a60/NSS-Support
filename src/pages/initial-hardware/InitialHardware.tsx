@@ -1,4 +1,4 @@
-const Information = () => {
+const InitialHardware = () => {
   return (
     <div>
       <p
@@ -9,10 +9,10 @@ const Information = () => {
           margin: 0,
         }}
       >
-        Infomation Management
+        Initial Hardware
       </p>
     </div>
   );
 };
 
-export default Information;
+export default InitialHardware;

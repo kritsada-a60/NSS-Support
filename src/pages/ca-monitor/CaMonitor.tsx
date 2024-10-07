@@ -1,4 +1,4 @@
-const Information = () => {
+const CaMonitor = () => {
   return (
     <div>
       <p
@@ -9,10 +9,10 @@ const Information = () => {
           margin: 0,
         }}
       >
-        Infomation Management
+        CA Monitor
       </p>
     </div>
   );
 };
 
-export default Information;
+export default CaMonitor;

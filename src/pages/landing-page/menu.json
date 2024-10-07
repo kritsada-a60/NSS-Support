@@ -1,0 +1,451 @@
+[
+  {
+    "_id": "0003",
+    "screen_id": "IM001",
+    "menuName": "Information Management",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 1
+  },
+  {
+    "_id": "0004",
+    "screen_id": "SI001",
+    "menuName": "Store Information",
+    "active": true,
+    "parent_id": "0003",
+    "menulevel": 2
+  },
+  {
+    "_id": "0005",
+    "screen_id": "ALC1001",
+    "menuName": "Alcoholic beverages",
+    "active": true,
+    "parent_id": "0003",
+    "menulevel": 2
+  },
+  {
+    "_id": "0006",
+    "screen_id": "ALC1002",
+    "menuName": "1002 : Alcoholic beverages are not served.",
+    "active": true,
+    "parent_id": "0005",
+    "menulevel": 3
+  },
+  {
+    "_id": "0007",
+    "screen_id": "ALC1003",
+    "menuName": "1003 : Alcoholic beverages are not served at [PTT stations and educational institutions].",
+    "active": true,
+    "parent_id": "0005",
+    "menulevel": 3
+  },
+  {
+    "_id": "0008",
+    "screen_id": "ALC1004",
+    "menuName": "1004 : Alcoholic beverages are allowed to be served on [Islands].",
+    "active": true,
+    "parent_id": "0005",
+    "menulevel": 3
+  },
+  {
+    "_id": "0009",
+    "screen_id": "ALC1005",
+    "menuName": "1005 : No alcoholic beverages are sold from 11:00 AM to 2:00 PM, and from 5:00 PM to 12:00 AM.",
+    "active": true,
+    "parent_id": "0005",
+    "menulevel": 3
+  },
+  {
+    "_id": "0010",
+    "screen_id": "SR001",
+    "menuName": "Service",
+    "active": true,
+    "parent_id": "0005",
+    "menulevel": 2
+  },
+  {
+    "_id": "0011",
+    "screen_id": "CM2001",
+    "menuName": "2001 : Disable Cash management",
+    "active": true,
+    "parent_id": "0003",
+    "menulevel": 3
+  },
+  {
+    "_id": "0012",
+    "screen_id": "CM2002",
+    "menuName": "2002 : Config Lock Scan Product All Store",
+    "active": true,
+    "parent_id": "0010",
+    "menulevel": 3
+  },
+  {
+    "_id": "0013",
+    "screen_id": "CC001",
+    "menuName": "Config on cloud : เปิด pos online 24 ชั่วโมง",
+    "active": true,
+    "parent_id": "0010",
+    "menulevel": 3
+  },
+  {
+    "_id": "0014",
+    "screen_id": "CS001",
+    "menuName": "Config ขาร้าน : Config เปิดของ Seven Delivery",
+    "active": true,
+    "parent_id": "0010",
+    "menulevel": 3
+  },
+  {
+    "_id": "0015",
+    "screen_id": "LQ001",
+    "menuName": "Config Limit Qty per receipt All Store [Phase 2] NSS",
+    "active": true,
+    "parent_id": "0010",
+    "menulevel": 3
+  },
+  {
+    "_id": "0016",
+    "screen_id": "UV001",
+    "menuName": "Upload Video All Store [Phase 2] NSS",
+    "active": true,
+    "parent_id": "0010",
+    "menulevel": 3
+  },
+  {
+    "_id": "0017",
+    "screen_id": "UE001",
+    "menuName": "Upload Video Event by Store [Phase 2] NSS, StoreType",
+    "active": true,
+    "parent_id": "0010",
+    "menulevel": 3
+  },
+  {
+    "_id": "0018",
+    "screen_id": "USR001",
+    "menuName": "User",
+    "active": true,
+    "parent_id": "0003",
+    "menulevel": 2
+  },
+  {
+    "_id": "0019",
+    "screen_id": "ROLE001",
+    "menuName": "Role",
+    "active": true,
+    "parent_id": "0018",
+    "menulevel": 2
+  },
+  {
+    "_id": "0020",
+    "screen_id": "APP001",
+    "menuName": "Approver",
+    "active": true,
+    "parent_id": "0018",
+    "menulevel": 2
+  },
+  {
+    "_id": "0021",
+    "screen_id": "LOG001",
+    "menuName": "Log",
+    "active": true,
+    "parent_id": "0003",
+    "menulevel": 2
+  },
+
+  {
+    "_id": "0022",
+    "screen_id": "API001",
+    "menuName": "API",
+    "active": true,
+    "parent_id": "0021",
+    "menulevel": 2
+  },
+  {
+    "_id": "0023",
+    "screen_id": "EMAIL001",
+    "menuName": "EMAIL",
+    "active": true,
+    "parent_id": "0021",
+    "menulevel": 2
+  },
+  {
+    "_id": "0024",
+    "screen_id": "WF001",
+    "menuName": "Workflow",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 1
+  },
+  {
+    "_id": "0025",
+    "screen_id": "IN001",
+    "menuName": "Inbox",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 2
+  },
+  {
+    "_id": "0025",
+    "screen_id": "PAY901",
+    "menuName": "901 : Alipay",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0026",
+    "screen_id": "PAY902",
+    "menuName": "902 : True Money Wallet",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0027",
+    "screen_id": "PAY903",
+    "menuName": "903 : WeChat",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0028",
+    "screen_id": "PAY907",
+    "menuName": "907 : Social Welfare card holders (บัตรสวัสดิการแห่งรัฐ)",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0029",
+    "screen_id": "PAY910",
+    "menuName": "910 : Prompt Pay (พร้อมเพย์)",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0030",
+    "screen_id": "PAY912",
+    "menuName": "912 : POINTPARTNER (คะแนนบัตรเครดิต)",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0031",
+    "screen_id": "PAY913",
+    "menuName": "913 : สปสช. (eXta Plus)",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0032",
+    "screen_id": "PAY930",
+    "menuName": "930 : Alipay+",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0033",
+    "screen_id": "PAY931",
+    "menuName": "931 : Digital Wallet (กระเป๋าเงินรัฐบาล)",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0034",
+    "screen_id": "BEL923",
+    "menuName": "923 : เซเว่น เดลิเวอร์รี่ (BELLINEE)",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0035",
+    "screen_id": "BEL924",
+    "menuName": "924 : โรบินฮู้ด (BELLINEE)",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0036",
+    "screen_id": "BEL925",
+    "menuName": "925 : ไลน์ แมน (BELLINEE)",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0037",
+    "screen_id": "REQ1000",
+    "menuName": "Request Alcoholic beverages",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 2
+  },
+  {
+    "_id": "0038",
+    "screen_id": "ALC2002",
+    "menuName": "2002 : Alcoholic beverages are not served.",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0039",
+    "screen_id": "ALC2003",
+    "menuName": "2003 : Alcoholic beverages are not served at [PTT stations and educational institutions].",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0040",
+    "screen_id": "ALC2004",
+    "menuName": "2004 : Alcoholic beverages are allowed to be served on [Islands].",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0041",
+    "screen_id": "ALC2005",
+    "menuName": "2005 : No alcoholic beverages are sold from 11:00 AM to 2:00 PM, and from 5:00 PM to 12:00 AM.",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0042",
+    "screen_id": "REQ2000",
+    "menuName": "Request Service",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 2
+  },
+  {
+    "_id": "0043",
+    "screen_id": "CM2002",
+    "menuName": "2002 : Disable Cash management",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0044",
+    "screen_id": "ALC1006",
+    "menuName": "1006 : Config Lock for Product Scanning in All Store",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0045",
+    "screen_id": "REQ4000",
+    "menuName": "4000 : Request Cancel",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 3
+  },
+  {
+    "_id": "0046",
+    "screen_id": "DEP001",
+    "menuName": "Deployment",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 2
+  },
+  {
+    "_id": "0047",
+    "screen_id": "CM001",
+    "menuName": "CA Monitor",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 1
+  },
+  {
+    "_id": "0048",
+    "screen_id": "IH001",
+    "menuName": "Initial Hardware",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 1
+  },
+  {
+    "_id": "0049",
+    "screen_id": "HW002",
+    "menuName": "Hardware / OS Layer",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 2
+  },
+  {
+    "_id": "0050",
+    "screen_id": "PD001",
+    "menuName": "Peripheral device Information (Scanner)",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 2
+  },
+  {
+    "_id": "0051",
+    "screen_id": "PD002",
+    "menuName": "Peripheral device Information (Printer POS)",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 2
+  },
+  {
+    "_id": "0052",
+    "screen_id": "PD003",
+    "menuName": "Peripheral device Information (EDC)",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 2
+  },
+  {
+    "_id": "0053",
+    "screen_id": "PD004",
+    "menuName": "Peripheral device Information (Webcam)",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 2
+  },
+  {
+    "_id": "0054",
+    "screen_id": "PD005",
+    "menuName": "Peripheral device Information (PDA)",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 2
+  },
+  {
+    "_id": "0055",
+    "screen_id": "PD006",
+    "menuName": "Peripheral device Information (Printer)",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 2
+  },
+  {
+    "_id": "0056",
+    "screen_id": "SW001",
+    "menuName": "Software",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 2
+  },
+  {
+    "_id": "0057",
+    "screen_id": "DEP002",
+    "menuName": "Deployment Version",
+    "active": true,
+    "parent_id": null,
+    "menulevel": 2
+  }
+]

@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import { useLocation, useNavigate } from "react-router-dom";
-import { menuItems } from "../landing-page/menu";
+import { useMenu } from "./context/MenuProvider";
 
 type PropType = {
   children: JSX.Element;
@@ -9,12 +9,14 @@ type PropType = {
 
 const Navbar = ({ children }: PropType) => {
   const navigate = useNavigate();
-
   const location = useLocation();
+  const { menuName } = useMenu();
 
-  const currentMenuItem = menuItems.find((item) =>
-    location.pathname.includes(item.path)
-  );
+  const isLoginSuccess = location.pathname.startsWith("/store-operation");
+
+  // const currentMenuItem = menuItemsData.find((item) =>
+  //   location.pathname.includes(item.path)
+  // );
 
   return (
     <div>
@@ -36,58 +38,61 @@ const Navbar = ({ children }: PropType) => {
           }}
         >
           <p style={{ color: "#999999", fontSize: "14px" }}>
-            {currentMenuItem?.label ? currentMenuItem.label : "NSS support"}
+            {/* แสดงเมนูจาก landingpage */}
+            {menuName}
           </p>
 
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              height: "40px",
-              padding: "8px",
-            }}
-          >
-            {/* Picture profile */}
+          {isLoginSuccess && (
             <Box
               sx={{
-                width: "40px",
-                height: "40px",
-                background: "#00A651",
-                borderRadius: "999px",
-              }}
-            />
-            <Box sx={{ padding: "0 12px 0 12px" }}>
-              <p style={{ color: "#333333", margin: 0, fontSize: "16px" }}>
-                User xxxxx
-              </p>
-              <p style={{ color: "#666666", margin: 0, fontSize: "12px" }}>
-                I AM Administrator
-              </p>
-            </Box>
-
-            {/* button logout */}
-            <Box
-              sx={{
-                width: "40px",
-                height: "40px",
-                background: "#DFF0E7",
-                borderRadius: "8px",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "center",
+                height: "40px",
+                padding: "8px",
               }}
-              onClick={() => navigate("/")}
             >
-              <LogoutRoundedIcon
-                style={{
-                  width: "20px",
-                  height: "20px",
-                  color: "#00A651",
-                  cursor: "pointer",
+              {/* Picture profile */}
+              <Box
+                sx={{
+                  width: "40px",
+                  height: "40px",
+                  background: "#00A651",
+                  borderRadius: "999px",
                 }}
               />
+              <Box sx={{ padding: "0 12px 0 12px" }}>
+                <p style={{ color: "#333333", margin: 0, fontSize: "16px" }}>
+                  User xxxxx
+                </p>
+                <p style={{ color: "#666666", margin: 0, fontSize: "12px" }}>
+                  I AM Administrator
+                </p>
+              </Box>
+
+              {/* button logout */}
+              <Box
+                sx={{
+                  width: "40px",
+                  height: "40px",
+                  background: "#DFF0E7",
+                  borderRadius: "8px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+                onClick={() => navigate("/")}
+              >
+                <LogoutRoundedIcon
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    color: "#00A651",
+                    cursor: "pointer",
+                  }}
+                />
+              </Box>
             </Box>
-          </Box>
+          )}
         </div>
       </Box>
       <div>{children}</div>

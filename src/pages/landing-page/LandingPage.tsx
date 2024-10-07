@@ -1,8 +1,12 @@
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
-import { menuItems } from "./menu";
+import menuItemsData from "./menu.json";
+import { useMenu } from "../layout/context/MenuProvider";
 
 const LandingPage = () => {
+  const { setMenuName } = useMenu();
+  const menuItems = menuItemsData.filter((item) => item.menulevel === 1);
+
   return (
     <Box
       sx={{
@@ -17,9 +21,10 @@ const LandingPage = () => {
     >
       {menuItems.map((item) => (
         <Link
-          to={`/store-operation/${item.path}`}
+          to={`/store-operation/${item.screen_id}`}
           style={{ textDecoration: "none" }}
-          key={item.label}
+          key={item._id}
+          onClick={() => setMenuName(item.menuName)}
         >
           <div
             style={{
@@ -53,7 +58,7 @@ const LandingPage = () => {
                 margin: 0,
               }}
             >
-              {item.label}
+              {item.menuName}
             </p>
           </div>
         </Link>

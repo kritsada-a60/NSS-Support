@@ -24,7 +24,6 @@ const MainLayout = ({ children }: PropType) => {
         </Navbar>
         <div style={{ margin: "16px 24px" }}>{children}</div>
       </AppBar>
-      ;
     </Box>
   );
 };

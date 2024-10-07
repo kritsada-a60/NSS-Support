@@ -5,6 +5,8 @@ import Information from "../pages/information-mgm/Information";
 import WorkFlow from "../pages/work-flow/WorkFlow";
 import RootLayout from "../pages/layout/RootLayout";
 import MainLayout from "../pages/layout/MainLayout";
+import CaMonitor from "../pages/ca-monitor/CaMonitor";
+import InitialHardware from "../pages/initial-hardware/InitialHardware";
 
 export const Router = createBrowserRouter([
   {
@@ -20,7 +22,7 @@ export const Router = createBrowserRouter([
         element: <LandingPage />,
       },
       {
-        path: "store-operation/information",
+        path: "store-operation/IM001",
         element: (
           <MainLayout>
             <Information />
@@ -28,10 +30,26 @@ export const Router = createBrowserRouter([
         ),
       },
       {
-        path: "store-operation/work-flow",
+        path: "store-operation/WF001",
         element: (
           <MainLayout>
             <WorkFlow />
+          </MainLayout>
+        ),
+      },
+      {
+        path: "store-operation/CM001",
+        element: (
+          <MainLayout>
+            <CaMonitor />
+          </MainLayout>
+        ),
+      },
+      {
+        path: "store-operation/IH001",
+        element: (
+          <MainLayout>
+            <InitialHardware />
           </MainLayout>
         ),
       },

@@ -1,11 +1,14 @@
+import { MenuProvider } from "./context/MenuProvider";
 import Navbar from "./Navbar";
 import { Outlet } from "react-router-dom";
 
 const RootLayout = () => {
   return (
-    <Navbar>
-      <Outlet />
-    </Navbar>
+    <MenuProvider>
+      <Navbar>
+        <Outlet />
+      </Navbar>
+    </MenuProvider>
   );
 };
 
