@@ -1,19 +1,40 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../pages/login/login";
-import Home from "../pages/menu/index";
-import SamplePage from "../pages/sample-page/SamplePage";
+import LandingPage from "../pages/landing-page/LandingPage";
+import Information from "../pages/information-mgm/Information";
+import WorkFlow from "../pages/work-flow/WorkFlow";
+import RootLayout from "../pages/layout/RootLayout";
+import MainLayout from "../pages/layout/MainLayout";
 
 export const Router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
-  },
-  {
-    path: "/home",
-    element: <Home />,
-  },
-  {
-    path: "sample",
-    element: <SamplePage />,
+    element: <RootLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Login />,
+      },
+      {
+        path: "store-operation",
+        element: <LandingPage />,
+      },
+      {
+        path: "store-operation/information",
+        element: (
+          <MainLayout>
+            <Information />
+          </MainLayout>
+        ),
+      },
+      {
+        path: "store-operation/work-flow",
+        element: (
+          <MainLayout>
+            <WorkFlow />
+          </MainLayout>
+        ),
+      },
+    ],
   },
 ]);

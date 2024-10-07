@@ -1,14 +1,16 @@
 import React from "react";
 import { Box, Button, TextField, Typography, Container } from "@mui/material";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useTranslation } from "react-i18next";
 
 const Login = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const handleLogin = (event: React.FormEvent) => {
     event.preventDefault();
     console.log("Logging in...");
 
-    navigate("/home");
+    navigate("/store-operation");
   };
 
   return (
@@ -28,7 +30,7 @@ const Login = () => {
         }}
       >
         <Typography component="h1" variant="h5">
-          Login
+          {t("headerLogin")}
         </Typography>
         <Box component="form" onSubmit={handleLogin} sx={{ mt: 1 }}>
           <TextField
