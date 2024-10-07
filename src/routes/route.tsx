@@ -1,24 +1,40 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../pages/login/login";
-import SamplePage from "../pages/sample-page/SamplePage";
 import LandingPage from "../pages/landing-page/LandingPage";
-import Home from "../pages/layout";
+import Information from "../pages/information-mgm/Information";
+import WorkFlow from "../pages/work-flow/WorkFlow";
+import RootLayout from "../pages/layout/RootLayout";
+import MainLayout from "../pages/layout/MainLayout";
 
 export const Router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
-  },
-  {
-    path: "/store-operation",
-    element: <LandingPage />,
-  },
-  {
-    path: "/store-operation/information",
-    element: <Home />, //แก้ภายหลัง
-  },
-  {
-    path: "sample",
-    element: <SamplePage />,
+    element: <RootLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Login />,
+      },
+      {
+        path: "store-operation",
+        element: <LandingPage />,
+      },
+      {
+        path: "store-operation/information",
+        element: (
+          <MainLayout>
+            <Information />
+          </MainLayout>
+        ),
+      },
+      {
+        path: "store-operation/work-flow",
+        element: (
+          <MainLayout>
+            <WorkFlow />
+          </MainLayout>
+        ),
+      },
+    ],
   },
 ]);

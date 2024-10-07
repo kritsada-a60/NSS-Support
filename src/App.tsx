@@ -1,13 +1,11 @@
 import "./App.css";
-import Login from "./pages/login/login";
-
-// import Home from "./pages/menu";
+import MainContainer from "./MainContainer";
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <>
+      <MainContainer />
+    </>
   );
 }
 

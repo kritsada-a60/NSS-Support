@@ -1,8 +1,5 @@
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
@@ -13,7 +10,6 @@ import DesktopWindowsRoundedIcon from "@mui/icons-material/DesktopWindowsRounded
 import MailIcon from "@mui/icons-material/Mail";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Navbar from "./Navbar";
 
 export default function Sidebar() {
   const drawerWidth = 240;
@@ -61,17 +57,7 @@ export default function Sidebar() {
   //   setActiveSubItem(title);
   // };
   return (
-    <Box sx={{ display: "flex" }}>
-      <AppBar
-        position="fixed"
-        sx={{
-          width: `calc(100% - ${drawerWidth}px)`,
-          ml: `${drawerWidth}px`,
-          boxShadow: "none",
-        }}
-      >
-        <Navbar />
-      </AppBar>
+    <div>
       <Drawer
         sx={{
           width: drawerWidth,
@@ -140,23 +126,7 @@ export default function Sidebar() {
           </Box>
         ))}
       </Drawer>
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: "#F5F5F5", height: "100vh", p: 3 }}
-      >
-        <Toolbar />
-        <Typography
-          sx={{
-            marginBottom: 2,
-            color: "#333333",
-            fontSize: "32px",
-            fontWeight: "700",
-          }}
-        >
-          Infomation Management
-        </Typography>
-        <div>content</div>
-      </Box>
-    </Box>
+      {/* content */}
+    </div>
   );
 }

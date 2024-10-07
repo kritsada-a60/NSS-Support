@@ -1,12 +1,6 @@
 import Box from "@mui/material/Box";
-import { Link, Outlet } from "react-router-dom";
-
-const menuItems = [
-  { label: "Information Management", path: "information" },
-  { label: "Work Flow", path: "work-flow" },
-  { label: "CA Monitor", path: "ca-monitor" },
-  { label: "Initial Hardware", path: "initial-hardware" },
-];
+import { Link } from "react-router-dom";
+import { menuItems } from "./menu";
 
 const LandingPage = () => {
   return (
@@ -22,14 +16,12 @@ const LandingPage = () => {
       }}
     >
       {menuItems.map((item) => (
-        // card
         <Link
-          to={item.path}
+          to={`/store-operation/${item.path}`}
           style={{ textDecoration: "none" }}
           key={item.label}
         >
           <div
-            key={item.label}
             style={{
               width: "217px",
               height: "300px",
@@ -66,8 +58,6 @@ const LandingPage = () => {
           </div>
         </Link>
       ))}
-
-      <Outlet />
     </Box>
   );
 };

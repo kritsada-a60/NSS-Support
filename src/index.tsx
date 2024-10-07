@@ -1,9 +1,9 @@
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import "./i18n";
-import MainContainer from "./MainContainer";
+import App from "./App";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-root.render(<MainContainer />);
+root.render(<App />);
