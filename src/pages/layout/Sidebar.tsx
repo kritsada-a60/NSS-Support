@@ -4,8 +4,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import { useState } from "react";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import StoreMallDirectoryRoundedIcon from "@mui/icons-material/StoreMallDirectoryRounded";
-import SportsBarRoundedIcon from "@mui/icons-material/SportsBarRounded";
+import { StoreMallDirectory, SportsBar } from "@mui/icons-material";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Typography } from "@mui/material";
@@ -24,13 +23,13 @@ const Sidebar = () => {
     {
       id: 2,
       title: "Store",
-      icon: StoreMallDirectoryRoundedIcon,
+      icon: StoreMallDirectory,
       path: "",
     },
     {
       id: 3,
       title: "Alcoholic",
-      icon: SportsBarRoundedIcon,
+      icon: SportsBar,
       path: "",
       children: [
         {
