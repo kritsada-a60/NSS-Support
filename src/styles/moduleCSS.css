@@ -57,3 +57,59 @@
 .custom-data-grid .MuiDataGrid-sortIcon {
   color: #ffffff;
 }
+
+.custom-data-grid .MuiDataGrid-columnHeaderCheckbox .MuiCheckbox-root {
+  color: #ffffff;
+}
+
+.swal2-popup {
+  width: 538px;
+  height: 479px;
+  padding: 64px 64px 48px 64px;
+  border-radius: 20px;
+  opacity: 1;
+}
+
+.custom-swal-button {
+  width: 189px;
+  height: 52px;
+  padding: 8px 12px;
+  gap: 8px;
+  border-radius: 12px;
+  background-color: #00a651;
+  color: #fff;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+}
+
+.custom-swal-button:hover {
+  opacity: 0.8;
+}
+
+.custom-swal-cancel-button {
+  width: 189px;
+  height: 52px;
+  padding: 8px 12px;
+  gap: 8px;
+  border-radius: 12px;
+  background: #fff;
+  color: #00a651;
+  border: 1px solid #00a651;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.swal2-actions {
+  display: flex;
+  justify-content: space-between; /* Ensures buttons take full width */
+}
+
+.swal2-confirm {
+  order: 2; /* Make confirm button come after cancel */
+}
+
+.swal2-cancel {
+  order: 1; /* Make cancel button come before confirm */
+}
