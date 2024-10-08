@@ -8,6 +8,7 @@ import MainLayout from "../pages/layout/MainLayout";
 import CaMonitor from "../pages/ca-monitor/CaMonitor";
 import InitialHardware from "../pages/initial-hardware/InitialHardware";
 import SamplePage from "../pages/sample-page/SamplePage";
+import Navbar from "../pages/layout/Navbar";
 
 export const Router = createBrowserRouter([
   {
@@ -23,11 +24,15 @@ export const Router = createBrowserRouter([
         element: <SamplePage />,
       },
       {
-        path: "store-operation",
-        element: <LandingPage />,
+        path: "/store-operation",
+        element: (
+          <Navbar>
+            <LandingPage />
+          </Navbar>
+        ),
       },
       {
-        path: "store-operation/IM001",
+        path: "/store-operation/IM001",
         element: (
           <MainLayout>
             <Information />
@@ -35,7 +40,7 @@ export const Router = createBrowserRouter([
         ),
       },
       {
-        path: "store-operation/WF001",
+        path: "/store-operation/WF001",
         element: (
           <MainLayout>
             <WorkFlow />
@@ -43,7 +48,7 @@ export const Router = createBrowserRouter([
         ),
       },
       {
-        path: "store-operation/CM001",
+        path: "/store-operation/CM001",
         element: (
           <MainLayout>
             <CaMonitor />
@@ -51,7 +56,7 @@ export const Router = createBrowserRouter([
         ),
       },
       {
-        path: "store-operation/IH001",
+        path: "/store-operation/IH001",
         element: (
           <MainLayout>
             <InitialHardware />

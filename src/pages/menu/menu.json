@@ -10,7 +10,7 @@
   {
     "_id": "0004",
     "screen_id": "SI001",
-    "menuName": "Store Information",
+    "menuName": "Store",
     "active": true,
     "parent_id": "0003",
     "menulevel": 2
@@ -18,7 +18,7 @@
   {
     "_id": "0005",
     "screen_id": "ALC1001",
-    "menuName": "Alcoholic beverages",
+    "menuName": "Alcoholic",
     "active": true,
     "parent_id": "0003",
     "menulevel": 2
@@ -26,7 +26,7 @@
   {
     "_id": "0006",
     "screen_id": "ALC1002",
-    "menuName": "1002 : Alcoholic beverages are not served.",
+    "menuName": "Alcoholic beverages are not served",
     "active": true,
     "parent_id": "0005",
     "menulevel": 3
@@ -34,7 +34,7 @@
   {
     "_id": "0007",
     "screen_id": "ALC1003",
-    "menuName": "1003 : Alcoholic beverages are not served at [PTT stations and educational institutions].",
+    "menuName": "Alcoholic beverages are not served at [PTT stations and educational institutions]",
     "active": true,
     "parent_id": "0005",
     "menulevel": 3
@@ -42,7 +42,7 @@
   {
     "_id": "0008",
     "screen_id": "ALC1004",
-    "menuName": "1004 : Alcoholic beverages are allowed to be served on [Islands].",
+    "menuName": "Alcoholic beverages are allowed to be served on [Islands]",
     "active": true,
     "parent_id": "0005",
     "menulevel": 3
@@ -50,23 +50,23 @@
   {
     "_id": "0009",
     "screen_id": "ALC1005",
-    "menuName": "1005 : No alcoholic beverages are sold from 11:00 AM to 2:00 PM, and from 5:00 PM to 12:00 AM.",
+    "menuName": "No alcoholic beverages are sold from 11:00 AM to 2:00 PM, and from 5:00 PM to 12:00 AM",
     "active": true,
     "parent_id": "0005",
     "menulevel": 3
   },
   {
     "_id": "0010",
-    "screen_id": "SR001",
-    "menuName": "Service",
+    "screen_id": "CF001",
+    "menuName": "Configuration",
     "active": true,
-    "parent_id": "0005",
+    "parent_id": "0003",
     "menulevel": 2
   },
   {
     "_id": "0011",
     "screen_id": "CM2001",
-    "menuName": "2001 : Disable Cash management",
+    "menuName": "Disable Cash management",
     "active": true,
     "parent_id": "0003",
     "menulevel": 3
@@ -74,7 +74,7 @@
   {
     "_id": "0012",
     "screen_id": "CM2002",
-    "menuName": "2002 : Config Lock Scan Product All Store",
+    "menuName": "Config Lock Scan Product All Store",
     "active": true,
     "parent_id": "0010",
     "menulevel": 3
@@ -133,7 +133,7 @@
     "menuName": "Role",
     "active": true,
     "parent_id": "0018",
-    "menulevel": 2
+    "menulevel": 3
   },
   {
     "_id": "0020",
@@ -141,7 +141,7 @@
     "menuName": "Approver",
     "active": true,
     "parent_id": "0018",
-    "menulevel": 2
+    "menulevel": 3
   },
   {
     "_id": "0021",
@@ -158,7 +158,7 @@
     "menuName": "API",
     "active": true,
     "parent_id": "0021",
-    "menulevel": 2
+    "menulevel": 3
   },
   {
     "_id": "0023",
@@ -166,7 +166,7 @@
     "menuName": "EMAIL",
     "active": true,
     "parent_id": "0021",
-    "menulevel": 2
+    "menulevel": 3
   },
   {
     "_id": "0024",
