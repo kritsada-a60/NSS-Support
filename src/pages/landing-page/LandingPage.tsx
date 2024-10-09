@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMenu } from "../menu/context/MenuProvider";
 
 const LandingPage = () => {
-  const { setMenuName, menuItems } = useMenu();
+  const { menuItems } = useMenu();
 
   return (
     <Box
@@ -21,10 +21,9 @@ const LandingPage = () => {
         .filter((item) => item.menulevel === 1)
         .map((item) => (
           <Link
-            to={`/store-operation/${item.screen_id}`}
+            to={`/store-operation/${item.screenId}`}
             style={{ textDecoration: "none" }}
-            key={item._id}
-            onClick={() => setMenuName(item.menuName)}
+            key={item.id}
           >
             <div
               style={{
