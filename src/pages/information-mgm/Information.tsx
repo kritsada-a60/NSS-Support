@@ -1,4 +1,7 @@
+import { useMenu } from "../menu/context/MenuProvider";
+
 const Information = () => {
+  const { breadcrumbs } = useMenu();
   return (
     <div>
       <p
@@ -9,7 +12,9 @@ const Information = () => {
           margin: 0,
         }}
       >
-        Infomation Management
+        {breadcrumbs.length > 0
+          ? breadcrumbs[breadcrumbs.length - 1]
+          : "Default Title"}
       </p>
     </div>
   );

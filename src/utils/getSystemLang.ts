@@ -1,4 +1,4 @@
 export const getSystemLang = () => {
-    const lang = localStorage.getItem('wts-lang'); 
-    return lang || 'en'; 
+  const lang = localStorage.getItem("language");
+  return lang || "en";
 };

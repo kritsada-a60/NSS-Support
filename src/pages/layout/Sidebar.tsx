@@ -1,226 +1,240 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import { useState } from "react";
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import { StoreMallDirectory, SportsBar } from "@mui/icons-material";
+import { Typography } from "@mui/material";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import SportsBarRoundedIcon from "@mui/icons-material/SportsBarRounded";
+import { useMenu } from "../menu/context/MenuProvider";
+import logo from "../../logo.svg";
+import StoreMallDirectoryRoundedIcon from "@mui/icons-material/StoreMallDirectoryRounded";
+import TuneRoundedIcon from "@mui/icons-material/TuneRounded";
+import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
+
+// กำหนก icon  menuName: Icon
+const menuIcons: { [key: string]: JSX.Element } = {
+  Store: <StoreMallDirectoryRoundedIcon />,
+  Alcoholic: <SportsBarRoundedIcon />,
+  Configuration: <TuneRoundedIcon />,
+  User: <PersonRoundedIcon />,
+  // Log:
+};
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const [activeItem, setActiveItem] = useState<number | null>(null);
-  const [openSubMenu, setOpenSubMenu] = useState<number | null>(null);
-  const [activeSubItem, setActiveSubItem] = useState<number | null>(null);
+  const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
+  const [activeSubItem, setActiveSubItem] = useState<string | null>(null);
+  const { menuName, menuItems, setBreadcrumbs } = useMenu();
 
-  const drawerWidth = 240;
+  const level1Menu = menuItems.find(
+    (item) => item.menuName === menuName && item.menulevel === 1
+  );
+  const level2Menus = menuItems.filter(
+    (item) => item.parent_id === level1Menu?._id && item.menulevel === 2
+  );
+  const level3Menus = menuItems.filter((item) => item.menulevel === 3);
 
-  const menuItems = [
-    { id: 1, title: "Menu", icon: HomeRoundedIcon, path: "" },
-    {
-      id: 2,
-      title: "Store",
-      icon: StoreMallDirectory,
-      path: "",
-    },
-    {
-      id: 3,
-      title: "Alcoholic",
-      icon: SportsBar,
-      path: "",
-      children: [
-        {
-          segment: "alcoholic not serve",
-          title: "Not Alcoholic",
-          path: "",
-        },
-        {
-          segment: "alcoholic ptt",
-          title: "Alcoholic PTT",
-          path: "",
-        },
-      ],
-    },
-  ];
-
-  const handleMainItemClick = (id: number) => {
+  const handleMainItemClick = (id: string, name: string) => {
     if (openSubMenu === id) {
       setOpenSubMenu(null);
+      setBreadcrumbs([]);
     } else {
       setOpenSubMenu(id);
+      setBreadcrumbs([menuName, name]);
     }
   };
 
-  const handleSubItemClick = (id: number) => {
+  const handleSubItemClick = (id: string, name: string) => {
     setActiveSubItem(id);
-    setActiveItem(null);
+
+    if (openSubMenu) {
+      const level2MenuName = level2Menus.find(
+        (menu) => menu._id === openSubMenu
+      )?.menuName;
+      setBreadcrumbs([menuName, level2MenuName || "", name]);
+    } else {
+      setBreadcrumbs([menuName, name]);
+    }
   };
 
-  return (
-    <div>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: drawerWidth,
-            boxSizing: "border-box",
-            background: "#BFE9D366",
-            border: 0,
-          },
-        }}
-        variant="permanent"
-        anchor="left"
-      >
-        <Box
-          sx={{
-            height: "56px",
-            background: "#31363D",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            marginBottom: "40px",
-          }}
-          onClick={() => navigate("/store-operation")}
-        >
-          <Box color="white">Logo Name</Box>
-        </Box>
+  useEffect(() => {
+    console.log("all", menuItems);
+    console.log("1", level1Menu);
+    console.log("2", level2Menus);
+  }, [menuItems]);
 
-        <Box
-          sx={{
-            padding: "0 16px",
-            color: "#00A651",
-            gap: "8px",
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          {menuItems.map((item) => (
-            <Box key={item.id}>
-              {/* Main */}
-              <Box
+  return (
+    <Drawer
+      sx={{
+        width: 240,
+        flexShrink: 0,
+        "& .MuiDrawer-paper": {
+          width: 240,
+          boxSizing: "border-box",
+          background: "#BFE9D366",
+          border: 0,
+        },
+      }}
+      variant="permanent"
+      anchor="left"
+    >
+      <Box
+        sx={{
+          height: "56px",
+          background: "#00432E",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginBottom: "40px",
+        }}
+        onClick={() => navigate("/store-operation")}
+      >
+        <Box sx={{ width: "118px", height: "40px" }}>
+          <img
+            src={logo}
+            alt=""
+            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          />
+        </Box>
+      </Box>
+
+      <Box
+        sx={{
+          padding: "0 16px",
+          color: "#00A651",
+          gap: "8px",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        {level2Menus.map((item) => (
+          <Box key={item._id}>
+            {/* Main */}
+            <Box
+              sx={{
+                backgroundColor:
+                  openSubMenu === item._id ? "white" : "transparent",
+                borderRadius: "8px",
+              }}
+            >
+              <ListItemButton
+                onClick={() => handleMainItemClick(item._id, item.menuName)}
                 sx={{
-                  backgroundColor:
-                    activeItem === item.id || openSubMenu === item.id
-                      ? "white"
-                      : "transparent",
+                  height: "40px",
                   borderRadius: "8px",
+                  justifyContent: "space-between", // Make space between items
+                  "&:hover": {
+                    backgroundColor: "white",
+                    transition: "0.2s ease-in-out",
+                  },
                 }}
               >
-                <ListItemButton
-                  onClick={() => handleMainItemClick(item.id)}
+                <ListItemIcon sx={{ color: "#00A651", minWidth: "24px" }}>
+                  {menuIcons[item.menuName] || null}
+                </ListItemIcon>
+                <Typography
                   sx={{
-                    backgroundColor:
-                      activeItem === item.id ? "white" : "transparent",
-                    height: "40px",
-                    borderRadius: "8px",
-                    "&:hover": {
-                      backgroundColor: "white",
-                      transition: "0.2s ease-in-out",
-                    },
+                    padding: "0 16px", // Keep padding for text
+                    fontSize: "16px",
+                    lineHeight: "20.8px",
+                    fontWeight: "400",
+                    flexGrow: 1, // Allow text to grow and take available space
                   }}
                 >
-                  <ListItemIcon sx={{ color: "#00A651", minWidth: "24px" }}>
-                    {item.icon && <item.icon />}
-                  </ListItemIcon>
-                  <Typography
-                    sx={{
-                      padding: "0 16px",
-                      fontSize: "16px",
-                      lineHeight: "20.8px",
-                      fontWeight: "400",
-                    }}
-                  >
-                    {item.title}
-                  </Typography>
-                  {item.children &&
-                    (openSubMenu === item.id ? (
-                      <ExpandLessIcon />
-                    ) : (
-                      <ExpandMoreIcon />
-                    ))}
-                </ListItemButton>
+                  {item.menuName}
+                </Typography>
+                {level3Menus.some(
+                  (subItem) => subItem.parent_id === item._id
+                ) &&
+                  (openSubMenu === item._id ? (
+                    <ExpandLessIcon />
+                  ) : (
+                    <ExpandMoreIcon />
+                  ))}
+              </ListItemButton>
 
-                {/* Submenu */}
-                {item.children && openSubMenu === item.id && (
-                  <Box>
-                    {item.children.map((child, index) => (
-                      <ListItemButton
-                        key={index}
-                        onClick={() => handleSubItemClick(index)}
-                        sx={{
-                          height: "40px",
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "16px",
-                          borderRadius:
-                            index === item.children.length - 1
-                              ? "0 0 8px 8px"
-                              : "0",
-                          "&:hover": {
-                            backgroundColor: "#00A651",
-                            color: "white",
-                            transition: "0.2s ease-in-out",
-                            "& .icon-box": {
-                              background: "white",
-                            },
-                            "& .text": {
-                              color: "white",
-                            },
+              {/* Submenu */}
+              {openSubMenu === item._id &&
+                level3Menus
+                  .filter((subItem) => subItem.parent_id === item._id)
+                  .map((subItem, index, array) => (
+                    <ListItemButton
+                      key={subItem._id}
+                      onClick={() =>
+                        handleSubItemClick(subItem._id, subItem.menuName)
+                      }
+                      sx={{
+                        height: "max-content",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "16px",
+                        borderRadius:
+                          index === array.length - 1 ? "0 0 8px 8px" : "0",
+                        "&:hover": {
+                          backgroundColor: "#00A651",
+                          color: "white",
+                          transition: "0.2s ease-in-out",
+                          "& .icon-box": {
+                            background: "white",
                           },
-                          backgroundColor:
-                            activeSubItem === index ? "#00A651" : "transparent",
+                          "& .text": {
+                            color: "white",
+                          },
+                        },
+                        backgroundColor:
+                          activeSubItem === subItem._id
+                            ? "#00A651"
+                            : "transparent",
+                        color:
+                          activeSubItem === subItem._id
+                            ? "white"
+                            : "text.secondary",
+                      }}
+                    >
+                      <ListItemIcon
+                        sx={{
+                          minWidth: "8px",
+                          padding: "8px",
                           color:
-                            activeSubItem === index
+                            activeSubItem === subItem._id ? "white" : "#666666",
+                        }}
+                      >
+                        <Box
+                          className="icon-box"
+                          sx={{
+                            width: "8px",
+                            height: "8px",
+                            borderRadius: "50%",
+                            background:
+                              activeSubItem === subItem._id
+                                ? "white"
+                                : "#666666",
+                          }}
+                        />
+                      </ListItemIcon>
+                      <Typography
+                        className="text"
+                        sx={{
+                          fontSize: "14px",
+                          lineHeight: "18.2px",
+                          color:
+                            activeSubItem === subItem._id
                               ? "white"
                               : "text.secondary",
                         }}
                       >
-                        <ListItemIcon
-                          sx={{
-                            minWidth: "8px",
-                            padding: "8px",
-                            color:
-                              activeSubItem === index ? "white" : "#666666",
-                          }}
-                        >
-                          <Box
-                            className="icon-box"
-                            sx={{
-                              width: "8px",
-                              height: "8px",
-                              borderRadius: "50%",
-                              background:
-                                activeSubItem === index ? "white" : "#666666",
-                            }}
-                          />
-                        </ListItemIcon>
-                        <Typography
-                          className="text"
-                          sx={{
-                            fontSize: "14px",
-                            lineHeight: "18.2px",
-                            color:
-                              activeSubItem === index
-                                ? "white"
-                                : "text.secondary",
-                          }}
-                        >
-                          {child.title}
-                        </Typography>
-                      </ListItemButton>
-                    ))}
-                  </Box>
-                )}
-              </Box>
+                        {subItem.menuName}
+                      </Typography>
+                    </ListItemButton>
+                  ))}
             </Box>
-          ))}
-        </Box>
-      </Drawer>
-    </div>
+          </Box>
+        ))}
+      </Box>
+    </Drawer>
   );
 };
 
