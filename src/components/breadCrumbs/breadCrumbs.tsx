@@ -28,7 +28,6 @@ const BreadCrumbs: React.FC = () => {
   };
 
   const breadcrumbPath = getBreadcrumbPath(pathnames);
-
   return (
     <Breadcrumbs
       aria-label="breadcrumb"
@@ -37,10 +36,13 @@ const BreadCrumbs: React.FC = () => {
       {breadcrumbPath.map((name, index) => {
         const last = index === breadcrumbPath.length - 1;
         const to = `/${pathnames.slice(0, index + 1).join("/")}`;
-
         return last ? (
           <Typography color="text.primary" key={to}>
-            {name}
+            {name.startsWith("Edit")
+              ? "Edit"
+              : name.startsWith("Add")
+              ? "Add"
+              : name}
           </Typography>
         ) : (
           <Link component={RouterLink} to={to} key={to}>

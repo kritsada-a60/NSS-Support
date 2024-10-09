@@ -4,7 +4,6 @@ import { Grid, IconButton, Stack, Typography } from "@mui/material";
 import HTextfield from "../../../../../components/hook-form/HTextfield";
 import HSelect from "../../../../../components/hook-form/HSelect";
 import HDatePicker from "../../../../../components/hook-form/HDatePicker";
-import DataGridServer from "../../../../../components/datagridServer/DataGridServer";
 import { GridRenderCellParams } from "@mui/x-data-grid";
 import { EditOutlined } from "@mui/icons-material";
 import { useState } from "react";
@@ -171,14 +170,14 @@ const EditAlcoholicIsands = () => {
           </Grid> */}
         </form>
       </FormProvider>
-      <DataGridServer
+      {/* <DataGridServer
         columns={columns}
         rows={rows}
         page={page}
         height={"400px"}
         rowCount={rows.length}
         onPageChange={onPageChange}
-      />
+      /> */}
     </div>
   );
 };

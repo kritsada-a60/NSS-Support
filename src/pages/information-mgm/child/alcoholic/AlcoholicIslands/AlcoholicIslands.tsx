@@ -9,6 +9,7 @@ import { GridRenderCellParams } from "@mui/x-data-grid";
 import { EditOutlined } from "@mui/icons-material";
 import { useState } from "react";
 import sampleData from "./component/sampleData";
+import { useNavigate } from "react-router-dom";
 
 interface FormData {
   name: string;
@@ -18,6 +19,7 @@ interface FormData {
 }
 
 const AlcoholicIslands = () => {
+  const navigate = useNavigate();
   const methods = useForm<FormData>({
     defaultValues: {
       name: "",
@@ -60,6 +62,7 @@ const AlcoholicIslands = () => {
         <IconButton
           onClick={() => {
             console.log(params.row);
+            navigate(`/store-operation/IM001/ALC001/ALC103/EditALC103`);
           }}
         >
           <EditOutlined color="primary" />
