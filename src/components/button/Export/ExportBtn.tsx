@@ -7,9 +7,9 @@ export default function ExportBtn({ children, ...other }: ButtonProps) {
   return (
     <Button
       variant="outlined"
-      color="warning"
+      // color="warning"
       {...other}
-      className="outlinedButton"
+      className="primaryOutlinedButton"
     >
       Export
     </Button>

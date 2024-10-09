@@ -5,7 +5,7 @@ export default function SaveBtn({ children, ...other }: ButtonProps) {
   //   const { t } = useTranslation();
 
   return (
-    <Button variant="contained" className="primaryContainedButton" {...other}>
+    <Button variant="contained" className="submitButton" {...other}>
       Save
     </Button>
   );

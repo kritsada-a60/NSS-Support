@@ -7,9 +7,11 @@ import {
   CancelBtn,
   ConfirmBtn,
   DeployBtn,
+  DisableBtn,
   ExportBtn,
   ImportBtn,
   RejectBtn,
+  RequestBtn,
   SaveBtn,
   SearchBtn,
   SendToBackBtn,
@@ -41,26 +43,44 @@ const ButtonSet = () => {
       </Stack>
       <Collapse in={expanded}>
         <Paper variant="outlined" sx={{ p: 1 }}>
+          Regular Size
           <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
+            <DisableBtn />
+            <RequestBtn />
             <ApproveBtn />
             <ConfirmBtn />
             <ImportBtn />
-            <SaveBtn />
             <SubmitBtn />
           </Stack>
           <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
-            <AddBtn />
-            <AddProductBtn />
-            <AddStoreBtn />
+            <AddBtn icon={false} />
+            <AddProductBtn icon={false} />
+            <AddStoreBtn icon={false} />
             <UploadBtn />
+            <ExportBtn />
+          </Stack>
+          <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
+            <DisableBtn disabled />
+            <AddBtn icon={false} disabled />
+          </Stack>
+          {/* adjust width */}
+          <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
+            <AddBtn sx={{ width: "90px !important" }} />
+            <AddStoreBtn sx={{ width: "140px !important" }} />
+            <AddProductBtn sx={{ width: "160px !important" }} />
+          </Stack>
+          Submit Size
+          <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
+            <SaveBtn />
+            <AddBtn icon={false} variant="contained" className="submitButton" />
           </Stack>
           <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
             <CancelBtn />
+          </Stack>
+          etc.
+          <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
             <DeployBtn />
             <SendToBackBtn />
-          </Stack>
-          <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
-            <ExportBtn />
           </Stack>
           <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
             <RejectBtn />

@@ -20,7 +20,7 @@ export const theme = createTheme({
       secondary: "#4D4D4D", // Text Color - 02
     },
     action: {
-      disabled: "#F4F4F4", // Button
+      disabled: "#CCCCCC", // Button
       disabledBackground: "#F2F2F2", // Field Form
     },
     success: {

@@ -5,17 +5,17 @@ import { Add } from "@mui/icons-material";
 interface BtnProps extends ButtonProps {
   icon?: boolean; // Add the 'icon' prop definition
 }
-export default function AddBtn({ icon = true, ...other }: BtnProps) {
+export default function RequestBtn({ icon = true, ...other }: BtnProps) {
   //   const { t } = useTranslation();
 
   return (
     <Button
-      variant="outlined"
+      variant="contained"
+      className="primaryContainedButton"
       startIcon={icon ? <Add /> : undefined}
-      className="primaryOutlinedButton"
       {...other}
     >
-      Add
+      Request Form
     </Button>
   );
 }

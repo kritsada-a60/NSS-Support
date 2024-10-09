@@ -5,12 +5,7 @@ export default function CancelBtn({ children, ...other }: ButtonProps) {
   //   const { t } = useTranslation();
 
   return (
-    <Button
-      variant="outlined"
-      color="inherit"
-      {...other}
-      className="outlinedButton"
-    >
+    <Button variant="outlined" className="submitButton" {...other}>
       Cancel
     </Button>
   );
