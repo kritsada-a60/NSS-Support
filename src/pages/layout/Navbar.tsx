@@ -1,9 +1,8 @@
 import { Box } from "@mui/material";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useMenu } from "../menu/context/MenuProvider";
-import { useEffect, useState } from "react";
-import NavigateNextRoundedIcon from "@mui/icons-material/NavigateNextRounded";
+import BreadCrumbs from "../../components/breadCrumbs/breadCrumbs";
 
 type PropType = {
   children: JSX.Element;
@@ -12,21 +11,19 @@ type PropType = {
 const Navbar = ({ children }: PropType) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { menuName, breadcrumbs } = useMenu();
+  const { menuItems } = useMenu();
+  const params = useParams();
+  const { levelA, levelB } = params;
+
+  // Find menu matches the current screenId
+  const menuList = menuItems.find((menu) => menu.screenId === levelA);
+
+  console.log(menuList);
 
   const isLoginSuccess = location.pathname.startsWith("/store-operation");
 
-  const [showBreadcrumbs, setShowBreadcrumbs] = useState<Boolean>(false);
   const userName = "Username Kub";
   const userInitial = userName.charAt(0).toUpperCase();
-
-  useEffect(() => {
-    if (breadcrumbs.length > 0) {
-      setShowBreadcrumbs(true);
-    } else {
-      setShowBreadcrumbs(false);
-    }
-  }, [breadcrumbs]);
 
   return (
     <div>
@@ -51,37 +48,13 @@ const Navbar = ({ children }: PropType) => {
             style={{
               fontSize: "14px",
               cursor: "pointer",
-              color: "text.sencondary",
+              color: "text.secondary",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            {showBreadcrumbs ? (
-              breadcrumbs.map((crumb, index) => {
-                const isLast = index === breadcrumbs.length - 1;
-                return (
-                  <span
-                    key={index}
-                    style={{ color: isLast ? "#00A651" : "#999999" }}
-                  >
-                    {crumb}
-                    {index < breadcrumbs.length - 1 && (
-                      <NavigateNextRoundedIcon
-                        style={{
-                          fontWeight: isLast ? "bold" : "normal",
-                          verticalAlign: "middle",
-                          margin: "0 4px",
-                          color: "black",
-                        }}
-                      />
-                    )}
-                  </span>
-                );
-              })
-            ) : (
-              <p>{menuName}</p>
-            )}
+            <BreadCrumbs />
           </div>
           {isLoginSuccess && (
             <Box

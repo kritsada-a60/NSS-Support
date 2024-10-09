@@ -5,16 +5,21 @@ import React, {
   useEffect,
   ReactNode,
 } from "react";
-import { useLocation } from "react-router-dom";
 import menu from "../../menu/menu.json";
 
-interface MenuContextType {
+interface MenuItem {
+  id: string;
+  screenId: string;
   menuName: string;
-  setMenuName: (name: string) => void;
-  menuItems: any[];
+  active: boolean;
+  parentId: string | null;
+  menulevel: number;
+  children?: MenuItem[];
+}
+
+interface MenuContextType {
+  menuItems: MenuItem[];
   fetchMenuItems: () => void;
-  breadcrumbs: string[];
-  setBreadcrumbs: (breadcrumbs: string[]) => void;
 }
 
 export const MenuContext = createContext<MenuContextType | undefined>(
@@ -26,19 +31,35 @@ interface MenuProviderProps {
 }
 
 export const MenuProvider: React.FC<MenuProviderProps> = ({ children }) => {
-  const [menuName, setMenuName] = useState<string>("");
-  const [menuItems, setMenuItems] = useState<any[]>([]);
-  const [breadcrumbs, setBreadcrumbs] = useState<string[]>([]);
-  const { pathname } = useLocation();
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
 
-  // mock data from API
+  const groupMenuItems = (items: MenuItem[]): MenuItem[] => {
+    const itemMap: { [key: string]: MenuItem } = {};
+    const rootItems: MenuItem[] = [];
+
+    items.forEach((item) => {
+      itemMap[item.id] = { ...item, children: [] };
+    });
+
+    items.forEach((item) => {
+      if (item.parentId === null) {
+        rootItems.push(itemMap[item.id]);
+      } else {
+        const parent = itemMap[item.parentId];
+        if (parent) {
+          parent.children = parent.children || [];
+          parent.children.push(itemMap[item.id]);
+        }
+      }
+    });
+
+    return rootItems;
+  };
+
   const fetchMenuItems = async () => {
     try {
-      // const response = await axios.get("/");
-      // const data = await response.json();
-      setMenuItems(menu);
-      setBreadcrumbs([]);
-      console.log(menu);
+      const groupMenu = groupMenuItems(menu);
+      setMenuItems(groupMenu);
     } catch (error) {
       console.log("Error fetching menu items:", error);
     }
@@ -46,24 +67,13 @@ export const MenuProvider: React.FC<MenuProviderProps> = ({ children }) => {
 
   useEffect(() => {
     fetchMenuItems();
-  }, [menuItems]);
-
-  useEffect(() => {
-    if (!pathname.startsWith("/store-operation/")) {
-      setMenuName("");
-      setBreadcrumbs([]);
-    }
-  }, [pathname, setMenuName]);
+  }, []);
 
   return (
     <MenuContext.Provider
       value={{
-        menuName,
-        setMenuName,
         menuItems,
         fetchMenuItems,
-        breadcrumbs,
-        setBreadcrumbs,
       }}
     >
       {children}
