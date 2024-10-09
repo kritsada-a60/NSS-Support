@@ -178,7 +178,7 @@ const AlcoholicIslands = () => {
         columns={columns}
         rows={rows}
         page={page}
-        height={"400px"}
+        height={"100%"}
         rowCount={rows.length}
         onPageChange={onPageChange}
       />

@@ -22,7 +22,16 @@ const MainLayout = ({ children }: PropType) => {
         <Navbar>
           <Sidebar />
         </Navbar>
-        <div style={{ margin: "16px 24px" }}>{children}</div>
+        <div
+          style={{
+            margin: "16px 24px",
+            padding: "16px",
+            overflowY: "scroll",
+            height: `calc(100vh - 64px - 32px)`,
+          }}
+        >
+          {children}
+        </div>
       </AppBar>
     </Box>
   );
