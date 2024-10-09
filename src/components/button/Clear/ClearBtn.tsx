@@ -1,12 +1,12 @@
 import { Button, ButtonProps } from "@mui/material";
 // import { useTranslation } from "react-i18next";
 
-export default function SearchBtn({ children, ...other }: ButtonProps) {
+export default function ClearBtn({ children, ...other }: ButtonProps) {
   //   const { t } = useTranslation();
 
   return (
-    <Button variant="contained" {...other} className="primaryContainedButton">
-      Search
+    <Button variant="outlined" className="primaryOutlinedButton" {...other}>
+      Clear
     </Button>
   );
 }

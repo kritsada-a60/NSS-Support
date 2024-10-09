@@ -5,6 +5,7 @@ import {
   AddStoreBtn,
   ApproveBtn,
   CancelBtn,
+  ClearBtn,
   ConfirmBtn,
   DeployBtn,
   DisableBtn,
@@ -58,6 +59,7 @@ const ButtonSet = () => {
             <AddStoreBtn icon={false} />
             <UploadBtn />
             <ExportBtn />
+            <ClearBtn />
           </Stack>
           <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
             <DisableBtn disabled />

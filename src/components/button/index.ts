@@ -3,6 +3,7 @@ export { default as AddProductBtn } from "./AddProduct/AddProductBtn";
 export { default as AddStoreBtn } from "./AddStore/AddStoreBtn";
 export { default as ApproveBtn } from "./Approve/ApproveBtn";
 export { default as CancelBtn } from "./Cancel/CancelBtn";
+export { default as ClearBtn } from "./Clear/ClearBtn";
 export { default as ConfirmBtn } from "./Confirm/ConfirmBtn";
 export { default as DeployBtn } from "./Deploy/DeployBtn";
 export { default as DisableBtn } from "./Disable/DisableBtn";

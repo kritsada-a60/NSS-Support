@@ -8,6 +8,7 @@ import {
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { theme } from "../../styles/theme";
 import { SearchOutlined } from "@mui/icons-material";
+import { useFormContext } from "react-hook-form";
 
 interface Option {
   value: string;
@@ -19,7 +20,8 @@ interface HSelectProps {
   icon?: boolean;
   width?: string;
   list?: Option[];
-  [key: string]: any; // To allow additional props
+  name: string;
+  [key: string]: any;
 }
 
 export default function HSelect({
@@ -27,11 +29,15 @@ export default function HSelect({
   icon = false,
   width = "276px",
   list = [],
+  name,
   ...other
 }: HSelectProps) {
+  const { register } = useFormContext();
   return (
     <Stack>
-      <Typography variant="body2">{header}</Typography>
+      <Typography variant="body2" className="inputHField">
+        {header}
+      </Typography>
       <Select
         sx={{
           width: width,
@@ -49,6 +55,7 @@ export default function HSelect({
             </InputAdornment>
           ) : undefined
         }
+        {...register(name)}
         {...other}
       >
         {list.map((item) => (

@@ -109,7 +109,7 @@ const SampleTable = () => {
   useEffect(() => {
     const newRows = generateRandomData(page.currentPage, page.pageSize);
     setRows(newRows);
-  }, []);
+  }, [page.currentPage, page.pageSize]);
 
   const onPageChange = (
     page: number,
