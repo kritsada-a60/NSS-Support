@@ -2,6 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useMenu } from "../menu/context/MenuProvider";
 import AlcoholicIslands from "../information-mgm/child/alcoholic/AlcoholicIslands/AlcoholicIslands";
 import EditAlcoholicIsands from "../information-mgm/child/alcoholic/AlcoholicIslands/EditAlcoholicIsands";
+import InBoxPage from "../inboxpage/InBoxPage";
+import ConfigPaymentMethod from "../configpaymentmethod/ConfigPaymentMethod";
 
 const ContentLayout = () => {
   const params = useParams();
@@ -41,6 +43,10 @@ const ContentLayout = () => {
 
   const getLevelAComponent = () => {
     switch (levelA) {
+      case "WF001":
+        return <InBoxPage />;
+        case "CPM001":
+        return <ConfigPaymentMethod />;
       default:
         return (
           <div>

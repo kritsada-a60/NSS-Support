@@ -384,5 +384,13 @@
     "active": true,
     "parentId": null,
     "menulevel": 2
+  },
+  {
+    "id": "0058",
+    "screenId": "CPM001",
+    "menuName": "Config Payment Method",
+    "active": true,
+    "parentId": null,
+    "menulevel": 1
   }
 ]
